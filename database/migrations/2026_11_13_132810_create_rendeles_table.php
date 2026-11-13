@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('rendeles', function (Blueprint $table) {
             $table->id();
+            $table->string('pizzanev');
+            $table->integer('darab');
+            $table->dateTime('felvetel');
+            $table->dateTime('kiszallitas')->nullable();
             $table->timestamps();
+
+            $table->foreign('pizzanev')->references('nev')->on('pizza')->onDelete('cascade');
         });
     }
 
