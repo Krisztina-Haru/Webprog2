@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pizza', function (Blueprint $table) {
-            $table->id();
+            $table->string('nev')->primary();
+            $table->string('kategorianev');
+            $table->boolean('vegetarianus');
             $table->timestamps();
+
+            $table->foreign('kategorianev')->references('nev')->on('kategoria')->onDelete('cascade');
+
         });
     }
 
