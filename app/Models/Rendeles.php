@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rendeles extends Model
 {
-    //
+    //Rendeles modell
 }
