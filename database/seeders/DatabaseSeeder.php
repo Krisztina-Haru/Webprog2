@@ -23,4 +23,5 @@ class DatabaseSeeder extends Seeder
             RendelesSeeder::class,
         ]);
     }
+    //Az adatok látszódnak az adatbázisban a seederek frissítése után!
 }
