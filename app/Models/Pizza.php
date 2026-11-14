@@ -11,4 +11,9 @@ class Pizza extends Model
     protected $primaryKey = 'nev';
     public $incrementing = false;
     protected $keyType = 'string';
+
+    public function kategoria()
+    {
+        return $this->belongsTo(Kategoria::class, 'kategorianev', 'nev');
+    }
 }
