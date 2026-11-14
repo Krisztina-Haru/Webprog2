@@ -94,7 +94,7 @@
                                           <tr>
                                             <td>{{ $pizza->nev }}</td>
                                             <td>{{ $pizza->kategoria->nev ?? 'Nincs kategória' }}</td>
-                                            <td>{{ $pizza->ar }} Ft</td>
+                                            <td>{{ $pizza->kategoria->ar }} Ft</td>
                                           </tr>
                                           @endforeach
                                          
