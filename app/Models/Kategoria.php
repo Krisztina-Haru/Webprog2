@@ -11,4 +11,9 @@ class Kategoria extends Model
     protected $primaryKey = 'nev';
     public $incrementing = false;
     protected $keyType = 'string';
+
+    public function pizzak()
+    {
+        return $this->hasMany(Pizza::class, 'kategorianev', 'nev');
+    }
 }
