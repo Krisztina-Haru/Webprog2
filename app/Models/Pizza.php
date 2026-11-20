@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+// Pizza modell: az adatbázis kapcsolat és mezők definiálása
 class Pizza extends Model
 {
     //Pizza modell
