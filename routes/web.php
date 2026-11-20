@@ -1,5 +1,7 @@
 <?php
 
+// Webes útvonalak és végpontok
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PizzaController;
 
