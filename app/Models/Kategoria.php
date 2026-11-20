@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+// Kategória modell: a pizzák kategóriáinak és kapcsolatainak kezelése
+
 class Kategoria extends Model
 {
     //Kategoria modell
