@@ -1,3 +1,4 @@
+{{-- Étlap felület sablonja --}}
 <!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
