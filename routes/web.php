@@ -10,3 +10,10 @@ Route::get('/', function () {
 });
 
 Route::get('/etlap', [PizzaController::class, 'index']);
+
+Route::get('/user', function ()
+{
+    return view('user');
+})->name('user');
+
+Route::get('/admin', [AdminController::class, 'adminPage'])->name('admin');
