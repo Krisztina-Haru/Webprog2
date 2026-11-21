@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             KategoriaSeeder::class,
             PizzaSeeder::class,
             RendelesSeeder::class,
-	    UserSeeder::class
+	        UserSeeder::class,
         ]);
     }
     //Az adatok látszódnak az adatbázisban a seederek frissítése után!
