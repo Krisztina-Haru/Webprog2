@@ -38,10 +38,9 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="{{ request()->routeIs('home') ? 'active' : '' }}">
-								<a href="{{ url('/') }}">Főoldal</a>
-							</li>
-							<li><a href="{{ url('/adatbazis') }}">Adatbázis</a></li>
+							
+							<li><a href="{{ url('/') }}">Főoldal</a></li>
+							<li><a href="{{ url('/etlap') }}">Adatbázis</a></li>
 							<li><a href="{{ url('/kapcsolat') }}">Kapcsolat</a></li>
 							<li><a href="{{ url('/diagram') }}">Diagram</a></li>
 
@@ -51,12 +50,12 @@
 							@endguest
 
 							@auth
-								@if(auth()->user()->role === 'regisztralt' || auth()->user()->role === 'admin')
+								@if(in_array(auth()->user()->role, [1, 2]))
 									<li><a href="{{ url('/uzenetek') }}">Üzenetek</a></li>
 								@endif
 
-								@if(auth()->user()->role === 'admin')
-									<li><a href="{{ url('/crud') }}">CRUD</a></li>
+								@if(auth()->user()->role == 1)
+									<li><a href="{{ route('admin') }}">CRUD</a></li>
 								@endif
 
 								<li>
@@ -68,6 +67,7 @@
 									</form>
 								</li>
 							@endauth
+
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
