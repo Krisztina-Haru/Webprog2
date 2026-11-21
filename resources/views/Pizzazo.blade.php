@@ -42,7 +42,7 @@
 							<li><a href="{{ url('/') }}">Főoldal</a></li>
 							<li><a href="{{ url('/etlap') }}">Adatbázis</a></li>
 							<li><a href="{{ url('/kapcsolat') }}">Kapcsolat</a></li>
-							<li><a href="{{ route('diagram') }}">Diagram</a></li>
+							<li><a href="{{ url('diagram') }}">Diagram</a></li>
 
 							@guest
 								<li><a href="{{ route('login') }}">Bejelentkezés</a></li>
