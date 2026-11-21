@@ -58,14 +58,6 @@
 									<li><a href="{{ route('admin') }}">CRUD</a></li>
 								@endif
 
-								<li>
-									<form method="POST" action="{{ route('logout') }}" style="display:inline;">
-										@csrf
-										<button type="submit" style="background:none;border:none;color:inherit;cursor:pointer;padding:0;font:inherit;">
-											Kijelentkezés
-										</button>
-									</form>
-								</li>
 							@endauth
 
 							@auth
