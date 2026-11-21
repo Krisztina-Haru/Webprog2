@@ -50,13 +50,6 @@
 							@endguest
 
 							@auth
-								@if(in_array(auth()->user()->role, [1, 2]))
-									<li><a href="{{ url('/uzenetek') }}">Üzenetek</a></li>
-								@endif
-
-								@if(auth()->user()->role == 1)
-									<li><a href="{{ route('admin') }}">CRUD</a></li>
-								@endif
 
 							@endauth
 
