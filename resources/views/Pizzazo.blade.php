@@ -38,9 +38,36 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">This is Massively</a></li>
-							<li><a href="generic.html">Generic Page</a></li>
-							<li><a href="elements.html">Elements Reference</a></li>
+							<li class="{{ request()->routeIs('home') ? 'active' : '' }}">
+								<a href="{{ url('/') }}">Főoldal</a>
+							</li>
+							<li><a href="{{ url('/adatbazis') }}">Adatbázis</a></li>
+							<li><a href="{{ url('/kapcsolat') }}">Kapcsolat</a></li>
+							<li><a href="{{ url('/diagram') }}">Diagram</a></li>
+
+							@guest
+								<li><a href="{{ route('login') }}">Bejelentkezés</a></li>
+								<li><a href="{{ route('register') }}">Regisztráció</a></li>
+							@endguest
+
+							@auth
+								@if(auth()->user()->role === 'regisztralt' || auth()->user()->role === 'admin')
+									<li><a href="{{ url('/uzenetek') }}">Üzenetek</a></li>
+								@endif
+
+								@if(auth()->user()->role === 'admin')
+									<li><a href="{{ url('/crud') }}">CRUD</a></li>
+								@endif
+
+								<li>
+									<form method="POST" action="{{ route('logout') }}" style="display:inline;">
+										@csrf
+										<button type="submit" style="background:none;border:none;color:inherit;cursor:pointer;padding:0;font:inherit;">
+											Kijelentkezés
+										</button>
+									</form>
+								</li>
+							@endauth
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
