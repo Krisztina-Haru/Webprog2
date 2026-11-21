@@ -74,4 +74,6 @@ Route::get('/user', function () {
     return view('user');
 })->name('user');
 
-Route::get('/admin', [AdminController::class, 'adminPage'])->name('admin');
+Route::get('/admin', [AdminController::class, 'adminPage'])
+->middleware('auth')
+->name('admin');
