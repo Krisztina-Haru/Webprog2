@@ -68,6 +68,32 @@
 								</li>
 							@endauth
 
+							@auth
+								@if(auth()->user()->role == 2)
+									<li><a href="{{ url('/uzenetek') }}">Üzenetek</a></li>
+								@endif
+
+								@if(auth()->user()->role == 1)
+									<li><a href="{{ route('admin') }}">CRUD</a></li>
+								@endif
+
+								<li>
+									<span>
+										{{ auth()->user()->name }}
+										({{ auth()->user()->role == 1 ? 'admin' : 'felhasználó' }})
+									</span>
+								</li>
+
+								<li>
+									<form method="POST" action="{{ route('logout') }}" style="display:inline;">
+										@csrf
+										<button type="submit" style="background:none;border:none;color:inherit;cursor:pointer;padding:0;font:inherit;">
+											Kijelentkezés
+										</button>
+									</form>
+								</li>
+							@endauth
+
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
