@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     return view('Pizzazo');
@@ -77,3 +78,19 @@ Route::get('/user', function () {
 Route::get('/admin', [AdminController::class, 'adminPage'])
 ->middleware('auth')
 ->name('admin');
+
+Route::get('/diagram', function () {
+    $adatok = DB::table('pizza')
+        ->leftJoin('kategoria', 'pizza.kategoria_id', '=', 'kategoria.id')
+        ->select(
+            DB::raw("COALESCE(kategoria.nev, 'Kategória nélkül') as kategoria_nev"),
+            DB::raw('COUNT(pizza.id) as darab')
+        )
+        ->groupBy('kategoria_nev')
+        ->get();
+
+    $labels = $adatok->pluck('kategoria_nev');
+    $values = $adatok->pluck('darab');
+
+    return view('diagram', compact('labels', 'values'));
+})->name('diagram');
